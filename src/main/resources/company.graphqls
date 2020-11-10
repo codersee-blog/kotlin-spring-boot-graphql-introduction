@@ -1,0 +1,16 @@
+type Company {
+    id: ID!
+    name: String!
+    address: String!
+    zipCode: String!
+}
+
+type Query {
+    companies: [Company]
+    companyById(id: ID!) : Company
+}
+
+type Mutation {
+    newCompany(name: String!, address: String!, zipCode: String!) : Company!
+    deleteCompany(id: ID!) : Boolean
+}

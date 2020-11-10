@@ -1,0 +1,21 @@
+type Employee {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    status: EmployeeStatus!
+    company: Company!
+}
+
+enum EmployeeStatus{
+    ACTIVE, RETIRED
+}
+
+extend type Query {
+    employees: [Employee]
+    employeeById(id: ID!) : Employee
+}
+
+extend type Mutation {
+    newEmployee(firstName: String!, lastName: String!, status: EmployeeStatus!, companyId: ID!) : Employee!
+    deleteEmployee(id: ID!) : Boolean
+}
